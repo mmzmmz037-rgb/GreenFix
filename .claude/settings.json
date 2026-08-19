@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create *)",
+      "Bash(npx --yes degit vitejs/vite/packages/create-vite/template-react .)",
+      "Read(//c/Users/User/Desktop/**)",
+      "Read(//c/Users/User/Desktop/__GreenFix_claude_backup/**)",
+      "Bash(diff .claude/settings.json ../__GreenFix_claude_backup/settings.json 2>&1; echo \"---\"; cat .claude/settings.json)",
+      "Bash(rm -rf ../__GreenFix_claude_backup 2>&1; ls -la)",
+      "Bash(npx --yes degit vitejs/vite/packages/create-vite/template-react . --force)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173/)",
+      "Bash(wait)",
+      "Bash(taskkill //F //IM node.exe)",
+      "Read(//c/Users/User/AppData/Local/Temp/greenfix_ts_ref/**)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5174/)",
+      "Bash(npm ls *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5175/)",
+      "Bash(npm uninstall *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5176/)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\User\\Desktop\\__GreenFix_claude_backup"
+    ]
+  }
+}
