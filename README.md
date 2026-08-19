@@ -1,16 +1,76 @@
-# React + Vite
+# GreenFix - משימה מעשית: תוכנית שדרוג + מימוש חלקי
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## הרצה
 
-Currently, two official plugins are available:
+```bash
+npm install
+npm run dev
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## שקיפות לגבי שימוש ב-AI
 
-## React Compiler
+בפיתוח השתמשתי ב-Claude כדי לזרז חלק מהעבודה, בעיקר ביצירת השלד הראשוני של הפרויקט (Vite + React + TypeScript), הצעות לעיצוב בסיסי ודיאלוג על החלטות ארכיטקטורה. את הלוגיקה, ה-state, ה-validation וטיפול בשגיאות כתבתי בעצמי, תוך הבנה מלאה של הקוד וביצוע תיקונים ובדיקות לאורך הדרך.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the Oxlint configuration
+## 1. אבחון מצב קיים
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+**הבעיות המרכזיות:**
+
+- עמוד אחד ארוך ללא חלוקה לקומפוננטות, המקשה על תחזוקה והרחבה.
+- קוד חוזר בין חלקים שונים, המקשה על ביצוע שינויים בצורה עקבית.
+- טופס ללא טיפול ברור בשגיאות ובמצבי שליחה.
+
+**הבעיה המרכזית מבחינתי:** הטופס הוא נקודת המפגש העיקרית עם לקוח פוטנציאלי, ולכן חוסר במשוב ברור במקרה של הצלחה או כשל עלול לגרום לאובדן פניות.
+
+---
+
+## 2. תוכנית שדרוג
+
+סדר העדיפויות שלי:
+
+1. שיפור טופס יצירת הקשר והטיפול בשגיאות.
+2. פירוק העמוד לקומפוננטות עצמאיות.
+3. הפרדת לוגיקה, UI ו-validation.
+4. שיפור נגישות וביצועים.
+
+הייתי משאירה תוכן ומסרים קיימים שעובדים, וכן אינטגרציות תקינות, כדי להימנע משינויים שאינם נדרשים למטרת השדרוג.
+
+---
+
+## 3. מימוש לדוגמה
+
+בחרתי לממש מחדש את טופס יצירת הקשר, מכיוון שהוא החלק בעל החשיבות העסקית הגבוהה ביותר באתר.
+
+**מה מומש:**
+
+- טופס בקשת שירות עם 5 שדות.
+- Validation מרכזי ונפרד מה-UI.
+- Validation בעת `blur`.
+- הודעות שגיאה ברורות לכל שדה.
+- מצבי שליחה ומשוב למשתמש.
+- מניעת שליחה כפולה.
+- Modal להצלחה או כשל.
+- שמירת הנתונים במקרה של כשל.
+- איפוס הטופס רק לאחר הצלחה.
+- טיפול במקרי קצה כגון שם שמכיל רווחים בלבד, אימייל לא תקין ואורך תיאור מקסימלי.
+
+השליחה במימוש הנוכחי מדומה, בהתאם להיקף המשימה, כדי לאפשר הדגמה של תרחישי הצלחה וכשל ללא צורך בבניית Backend.
+
+---
+
+## 4. הסבר והמשך
+
+בחרתי להתמקד בטופס משום שהוא קשור ישירות למטרה העסקית של האתר - יצירת פניות. כך יכולתי להדגים לא רק UI, אלא גם ניהול state, validation, טיפול בשגיאות ומצבי קצה.
+
+המשימה ביקשה **מימוש חלקי**, ולכן לא היה צורך לבנות Backend מלא. במערכת אמיתית, שכבת השליחה הייתה מתחברת ל-API/Backend של העסק, תוך שמירה על המבנה הקיים של הטופס.
+
+אם הייתי ממשיכה בפרויקט, הייתי:
+
+1. מפרקת את שאר העמוד לקומפוננטות.
+2. מחברת את הטופס ל-Backend/CRM אמיתי.
+3. מוסיפה בדיקות אוטומטיות.
+4. משפרת נגישות וביצועים.
+5. מוסיפה הגנה בסיסית מפני בוטים.
+
+העדפתי להתמקד בפתרון יציב וברור לחלק בעל הערך העסקי הגבוה ביותר, במקום לנסות לממש את כל האתר באופן חלקי.
