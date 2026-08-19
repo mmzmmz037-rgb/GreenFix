@@ -100,6 +100,11 @@
   cursor: pointer;
 }
 
+.submit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .form-field-error {
   color: #b3261e;
   font-size: 13px;
