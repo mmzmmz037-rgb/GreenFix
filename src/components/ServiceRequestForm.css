@@ -100,6 +100,12 @@
   cursor: pointer;
 }
 
+.form-field-error {
+  color: #b3261e;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
 .submit-button:hover {
   background-color: #35704a;
 }
